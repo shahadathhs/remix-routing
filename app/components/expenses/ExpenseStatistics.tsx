@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-function calculateSummaryStatistics(expenses) {
+const calculateSummaryStatistics = (expenses: { amount: number }[]) => {
   const amounts = expenses.map((expense) => +expense.amount);
   const maxAmount = Math.max(...amounts);
   const minAmount = Math.min(...amounts);
@@ -10,7 +10,11 @@ function calculateSummaryStatistics(expenses) {
   return { minAmount, maxAmount, sum, mean };
 }
 
-function ExpenseStatistics({ expenses }) {
+interface ExpenseStatisticsProps {
+  expenses: { amount: number }[];
+}
+
+export default function ExpenseStatistics({ expenses }: Readonly<ExpenseStatisticsProps>) {
   const { minAmount, maxAmount, sum, mean } = useMemo(
     () => calculateSummaryStatistics(expenses),
     [expenses]
@@ -40,5 +44,3 @@ function ExpenseStatistics({ expenses }) {
     </section>
   );
 }
-
-export default ExpenseStatistics;

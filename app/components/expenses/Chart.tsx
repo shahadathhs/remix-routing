@@ -1,6 +1,17 @@
 import ChartBar from './ChartBar';
 
-function Chart({ expenses }) {
+import PropTypes from 'prop-types';
+
+interface Expense {
+  date: string;
+  amount: number;
+}
+
+interface ChartProps {
+  expenses: Expense[];
+}
+
+export default function Chart({ expenses }: Readonly<ChartProps>) {
   const chartDataPoints = [
     { label: 'Jan', value: 0 },
     { label: 'Feb', value: 0 },
@@ -41,4 +52,11 @@ function Chart({ expenses }) {
   );
 }
 
-export default Chart;
+Chart.propTypes = {
+  expenses: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string.isRequired,
+      amount: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};

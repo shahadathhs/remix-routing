@@ -1,9 +1,9 @@
 import { Link, useSearchParams } from '@remix-run/react';
 import { FaLock, FaUserPlus } from 'react-icons/fa';
 
-function AuthForm() {
+export default function AuthForm() {
   const [searchParams] = useSearchParams();
-  const authMode = searchParams.get('mode') || 'login';
+  const authMode = searchParams.get('mode') ?? 'login';
 
   const submitBtnCaption = authMode === 'login' ? 'Login' : 'Create User';
   const toggleBtnCaption =
@@ -31,5 +31,3 @@ function AuthForm() {
     </form>
   );
 }
-
-export default AuthForm;

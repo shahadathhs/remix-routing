@@ -1,6 +1,13 @@
 import { Link } from '@remix-run/react';
+import PropTypes from 'prop-types';
 
-function ExpenseListItem({ id, title, amount }) {
+interface ExpenseListItemProps {
+  id: string;
+  title: string;
+  amount: number;
+}
+
+export default function ExpenseListItem({ id, title, amount }: Readonly<ExpenseListItemProps>) {
   function deleteExpenseItemHandler() {
     // tbd
   }
@@ -18,5 +25,8 @@ function ExpenseListItem({ id, title, amount }) {
     </article>
   );
 }
-
-export default ExpenseListItem;
+ExpenseListItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
+};

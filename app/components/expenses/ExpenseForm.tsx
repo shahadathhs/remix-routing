@@ -1,6 +1,6 @@
 import { Link } from '@remix-run/react';
 
-function ExpenseForm() {
+export default function ExpenseForm() {
   const today = new Date().toISOString().slice(0, 10); // yields something like 2023-09-10
 
   return (
@@ -34,5 +34,3 @@ function ExpenseForm() {
     </form>
   );
 }
-
-export default ExpenseForm;

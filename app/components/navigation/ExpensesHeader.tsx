@@ -2,7 +2,7 @@ import { NavLink } from '@remix-run/react';
 
 import Logo from '../util/Logo';
 
-function ExpensesHeader() {
+export default function ExpensesHeader() {
   return (
     <header id="main-header">
       <Logo />
@@ -24,5 +24,3 @@ function ExpensesHeader() {
     </header>
   );
 }
-
-export default ExpensesHeader;

@@ -1,4 +1,4 @@
-const ChartBar = ({ maxValue, value, label }) => {
+export default function ChartBar({ maxValue, value, label }: Readonly<{ maxValue: number; value: number; label: string }>) {
   let barFillHeight = '0%';
 
   if (maxValue > 0) {
@@ -16,6 +16,4 @@ const ChartBar = ({ maxValue, value, label }) => {
       <div className="chart-bar--label">{label}</div>
     </div>
   );
-};
-
-export default ChartBar;
+}
